@@ -3,16 +3,28 @@
   include 'includes/connect.php';
   include 'includes/errors.php';
 
-  $numbers = [];
+  $numbers1 = [];
 
-  while (count($numbers) < 5) {
+  while (count($numbers1) < 2) {
       $randNum = rand(10, 53);
-      if (!in_array($randNum, $numbers)) {
-          $numbers[] = $randNum;
+      if (!in_array($randNum, $numbers1)) {
+          $numbers1[] = $randNum;
       }
   }
   
-  list($rdm1, $rdm2, $rdm3, $rdm4, $rdm5) = $numbers;
+  list($rdm1, $rdm2) = $numbers1;
+  
+  $numbers2 = [];
+  
+  while (count($numbers2) < 3) {
+      $randNum = rand(10, 17);
+      if (!in_array($randNum, $numbers2)) {
+          $numbers2[] = $randNum;
+      }
+  }
+  
+  list($rdm3, $rdm4, $rdm5) = $numbers2;
+  
 
   $sql1 = "SELECT * FROM bdd_sae.Produits WHERE PID = $rdm1";
   $result1 = mysqli_query($con, $sql1);
@@ -36,13 +48,13 @@
   $result4 = mysqli_query($con, $sql4);
 
   $row4 = mysqli_fetch_assoc($result4);
-  $bestsell2 = $row4['Pnom'];
+  $bestsell2 = $row4['image'];
 
   $sql5 = "SELECT * FROM bdd_sae.Produits WHERE PID = $rdm5";
   $result5 = mysqli_query($con, $sql5);
 
   $row5 = mysqli_fetch_assoc($result5);
-  $bestsell3 = $row5['Pnom'];
+  $bestsell3 = $row5['image'];
 
 
 
@@ -81,15 +93,21 @@
     <section class="best-sell-section">
       <div class="best-sell-bg"></div>
       <div class="best-sell-item best-sell-item-left">
-        <div class="best-sell-item-bg"><?php echo $bestsell1; ?></div>
+        <div class="best-sell-item-bg">
+          <img class="best-sell-item-bg" src="<?php echo $bestsell1; ?>" alt="bestsell1">
+        </div>
         <div class="best-sell-item-text"></div>
       </div>
       <div class="best-sell-item best-sell-item-middle">
-        <div class="best-sell-item-bg"><?php echo $bestsell2; ?></div>
+        <div class="best-sell-item-bg">
+          <img class="best-sell-item-bg" src="<?php echo $bestsell2; ?>" alt="bestsell2">
+        </div>
         <div class="best-sell-item-text"></div>
       </div>
       <div class="best-sell-item best-sell-item-right">
-        <div class="best-sell-item-bg"><?php echo $bestsell3; ?></div>
+        <div class="best-sell-item-bg">
+          <img class="best-sell-item-bg" src="<?php echo $bestsell3; ?>" alt="bestsell3">
+        </div>
         <div class="best-sell-item-text"></div>
       </div>
     </section>
