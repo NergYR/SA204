@@ -28,15 +28,23 @@
 
   $sql1 = "SELECT * FROM bdd_sae.Produits WHERE PID = $rdm1";
   $result1 = mysqli_query($con, $sql1);
-    
+  
+  
+
   $row1 = mysqli_fetch_assoc($result1);
-  $promo1 = $row1['Pnom'];
+  $promo1_name = $row1['Pnom'];
+  $promo1_img = $row1['image'];
+  $promo1_price = $row1['prix'];
+
 
   $sql2 = "SELECT * FROM bdd_sae.Produits WHERE PID = $rdm2";
   $result2 = mysqli_query($con, $sql2);
 
   $row2 = mysqli_fetch_assoc($result2);
-  $promo2 = $row2['Pnom'];
+  $promo2_name = $row2['Pnom'];
+  $promo2_img = $row2['image'];
+  $promo2_price = $row2['prix'];
+
 
   $sql3 = "SELECT * FROM bdd_sae.Produits WHERE PID = $rdm3";
   $result3 = mysqli_query($con, $sql3);
@@ -81,11 +89,15 @@
       <div class="promo-circle promo-circle-top"></div>
       <div class="promo-circle promo-circle-bottom"></div>
       <div class="promo-item promo-item-left">
-        <div class="promo-item-bg"><?php echo $promo1;  ?></div>
+        <div class="promo-item-bg"><?php echo "Nom : " . $promo1_name;
+                                         echo "<br>";
+                                         echo "Prix : ". $promo1_price . "€";  ?></div>
         <div class="promo-item-text"></div>
       </div>
       <div class="promo-item promo-item-right">
-        <div class="promo-item-bg"><?php echo $promo2 ?></div>
+        <div class="promo-item-bg"><?php echo "Nom : " . $promo2_name;
+                                         echo "<br>";
+                                         echo "Prix : ". $promo2_price . "€";  ?></div>
         <div class="promo-item-text"></div>
       </div>
     </section>
