@@ -9,24 +9,28 @@ if (isset($_COOKIE['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Register Form</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js"></script>
 </head>
+
 <body onload="checkCookie()">
     <header class="header">
         <?php include '../includes/nav.php'; ?>
     </header>
     <div class="form-container">
         <div class="switch-button">
-            <input type="checkbox" id="toggleForm">
-            <label for="toggleForm" class="switch-label">
-                <span class="label-login">Login</span>
-                <span class="label-register">Register</span>
+            <input type="checkbox" id="toggleForm" class="toggle-checkbox">
+            <label for="toggleForm" class="toggle-label">
+                <div class="toggle-handle"></div>
             </label>
+            
         </div>
+
         <div class="form-flip">
             <div class="form-login">
                 <form action="login.php" method="post">
@@ -71,19 +75,19 @@ if (isset($_COOKIE['id'])) {
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const toggleForm = document.getElementById('toggleForm');
-    const formFlip = document.querySelector('.form-flip');
-    
-    toggleForm.addEventListener('change', function () {
-        if (this.checked) {
-            formFlip.style.transform = 'rotateY(180deg)';
-        } else {
-            formFlip.style.transform = 'rotateY(0deg)';
-        }
-    });
-});
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleForm = document.getElementById('toggleForm');
+            const formFlip = document.querySelector('.form-flip');
 
+            toggleForm.addEventListener('change', function() {
+                if (this.checked) {
+                    formFlip.style.transform = 'rotateY(180deg)';
+                } else {
+                    formFlip.style.transform = 'rotateY(0deg)';
+                }
+            });
+        });
     </script>
 </body>
+
 </html>

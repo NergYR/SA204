@@ -23,7 +23,7 @@ body {
 
 
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -385,6 +385,46 @@ button {
 
 button:hover {
   background: #45a049;
+}
+
+.toggle-checkbox {
+  display: none; /* Cacher la case à cocher */
+}
+
+.toggle-label {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.toggle-handle {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4CAF50;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-handle {
+  left: calc(100% - 27px); /* Déplacer le handle vers la droite */
+}
+
+
+
+.toggle-checkbox:checked ~ .form-container {
+  display: block; /* Afficher le formulaire lorsque le toggle est activé */
 }
 
 

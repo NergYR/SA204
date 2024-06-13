@@ -79,11 +79,11 @@
   <script src="js/main.js"></script>
 </head>
 <body onload="checkCookie()">
-  
-  <div class="container">
-    <header class="header">
+<header class="header">
       <?php include 'includes/nav.php'; ?>
     </header>
+  <div class="container">
+
     <section class="promo-section">
       <div class="promo-bg"></div>
       <div class="promo-circle promo-circle-top"></div>
