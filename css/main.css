@@ -23,6 +23,7 @@ body {
   height: 100%;
   background: rgba(217, 217, 217, 1);
 }
+
 .header-overlay-left, .header-overlay-right {
   width: 356px;
   height: 100%;
@@ -33,7 +34,26 @@ body {
 .header-overlay-left {
   right: 0;
   border-bottom-left-radius: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.home-link {
+  padding: 10px 20px;
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+.home-link:hover {
+  background-color: #A9A5A5;
+}
+
 .header-overlay-right {
   left: 0;
   border-top-right-radius: 90px;
