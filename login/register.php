@@ -22,16 +22,16 @@
 
     if(empty($name) && empty($email) && empty($password)){
         setcookie('error', 8, time() + 1, '/');
-        header('Location: ../register/index.php');
+        header('Location: ../login/index.php');
     }elseif(strlen($password) < 6){
         setcookie('error', 9, time() + 1, '/');
-        header('Location: ../register/index.php');
+        header('Location: ../login/index.php');
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         setcookie('error', 11, time() + 1, '/');
-        header('Location: ../register/index.php');
+        header('Location: ../login/index.php');
     }elseif(!preg_match('/^[a-zA-Z0-9]*$/', $name)){
         setcookie('error', 12, time() + 1, '/');
-        header('Location: ../register/index.php');
+        header('Location: ../login/index.php');
     }
     
 

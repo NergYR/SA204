@@ -1,113 +1,79 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-size: 14px;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
 }
 .container {
   width: 100%;
   background: rgba(255, 255, 255, 1);
   overflow: hidden;
 }
+/* ############################################################################### */
+/* Header Styles */
+/* ############################################################################### */
+
+
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 87px;
-  background: url("../images/v16_47.png") center center no-repeat;
-  background-size: cover;
-  position: relative;
-}
-.header-bg {
-  width: 100%;
-  height: 100%;
-  background: rgba(217, 217, 217, 1);
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.header-overlay-left, .header-overlay-right {
-  width: 356px;
-  height: 100%;
-  background: rgba(168, 164, 164, 1);
-  position: absolute;
-  top: 0;
-}
-.header-overlay-left {
-  right: 0;
-  border-bottom-left-radius: 90px;
+.header-bg {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.home-link {
+  justify-content: space-between;
   padding: 10px 20px;
-  background-color: #D9D9D9;
-  border: none;
-  border-radius: 15px;
-  font-size: 16px;
-  text-decoration: none;
-  color: black;
-  display: inline-block;
 }
 
-.home-link:hover {
-  background-color: #A9A5A5;
-}
-
-.header-overlay-right {
-  left: 0;
-  border-top-right-radius: 90px;
-}
-.header-button-right-login{
-  font-family: 'Roboto', sans-serif;
-  position: relative;
+.logo a {
   font-size: 20px;
-  color: black;
-  padding: 35px;
-  top: 5px;
+  font-weight: bold;
   text-decoration: none;
+  color: #333333; /* Couleur du texte du logo */
 }
 
-.header-button-left-register{
-  font-family: 'Roboto', sans-serif;
-  position: relative;
-  font-size: 20px;
-  color: black;
-  padding: 25px;
-  top: 5px;
+.nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links ul li {
+  margin-right: 20px;
+}
+
+.nav-links ul li a {
   text-decoration: none;
+  color: #333333; /* Couleur des liens de la navigation */
 }
-.header-button-right-logout{
-  font-family: 'Roboto', sans-serif;
-  position: relative;
-  font-size: 20px;
-  color: black;
-  padding: 35px;
-  top: 5px;
+
+.auth-buttons a {
   text-decoration: none;
+  color: #333333; /* Couleur des boutons de connexion/inscription */
+  margin-left: 20px;
 }
 
-.header-button-left, .header-button-right, .header-button-center {
-  width: 116px;
-  height: 35px;
-  background: rgba(217, 217, 217, 1);
-  border-radius: 15px;
-  position: absolute;
-  top: 26px;
-  z-index: 1; /* add this line */
-  
-
+.auth-buttons a:hover {
+  color: #ff9900; /* Couleur au survol des boutons de connexion/inscription */
 }
-
-.header-button-left {
-  right: 150px;
-}
-.header-button-right {
-  right: 20px;
-}
-.header-button-center {
-  right: 85px;
-}
+/* ############################################################################### */
+/* Promo Section Styles */
+/* ############################################################################### */
 
 .promo-section {
   width: 100%;
@@ -273,122 +239,152 @@ body {
 
 /* ############################################################################### */
 /* Register */
+/* Basic reset */
+
 
 .form-container {
-  width: 638.33px;
-  height: 809.46px;
-  position: absolute;
-  left: 600px;
-  top: 147px;
+  position: relative;
+  width: 350px;
+  height: 500px;
+  perspective: 1000px;
 }
 
-.form-container .form-background {
-  width: 575px;
-  height: 809.46px;
-  background: #D9D9D9;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-  left: 0;
+.switch-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.form-container .form-content {
-  width: 462.50px;
-  height: 664.50px;
+.switch-label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 15px;
+  transition: background 0.3s ease-in-out;
+}
+
+.switch-label::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+#toggleForm:checked + .switch-label::before {
+  transform: translateX(30px);
+}
+
+#toggleForm:checked + .switch-label {
+  background: #4caf50;
+}
+
+.label-login,
+.label-register {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #fff;
+}
+
+.label-login {
+  left: 5px;
+}
+
+.label-register {
+  right: 5px;
+}
+
+.form-flip {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+#toggleForm:checked ~ .form-flip {
+  transform: rotateY(180deg);
+}
+
+.form-login, .form-register {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   background: white;
-  position: absolute;
-  top: 74.22px;
-  left: 56.25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-register {
+  transform: rotateY(180deg);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .form-group {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 10px 10px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-bottom: 2px solid #4caf50;
+}
+
+.form-group label {
   position: absolute;
-  width: 411.71px;
-  height: 74.22px;
-}
-
-.form-group.header {
-  top: 0;
-  left: 36px;
-  width: 341px;
-  height: 80px;
-}
-
-.form-group.name {
-  top: 104px;
-}
-
-.form-group.surname {
-  top: 192px;
-}
-
-.form-group.email {
-  top: 280px;
-}
-
-.form-group.password {
-  top: 368px;
-  left: 1px;
-}
-
-.form-group.submit {
-  top: 507px;
-  left: 222px;
-  width: 309.33px;
-  height: 75.38px;
-}
-
-.form-group .input-background,
-.form-group .submit-background,
-.form-group .header-background {
-  width: 359.38px;
-  height: 74.22px;
-  background: #D9D9D9;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
-.form-group.header .header-background {
-  width: 279px;
-  height: 80px;
-  border-radius: 30px;
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 12px;
+  color: #4caf50;
 }
 
-.form-group.submit .submit-background {
-  width: 150px;
-  height: 75.38px;
+button {
+  padding: 10px 20px;
+  background: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.form-group .input-label,
-.form-group .submit-label,
-.form-group .header-title {
-  width: 290px;
-  height: 42px;
-  color: black;
-  font-size: 35px;
-  font-weight: 400;
-  word-wrap: break-word;
-  position: absolute;
-  top: 16.44px;
-  left: 121.71px;
-}
-
-.form-group.header .header-title {
-  height: 61px;
-  left: 72px;
-  top: 19px;
-}
-
-.form-group.surname .input-label,
-.form-group.email .input-label {
-  left: 97.71px;
-}
-
-.form-group.submit .submit-label {
-  top: 16.22px;
-  left: 19.33px;
+button:hover {
+  background: #45a049;
 }
 
 

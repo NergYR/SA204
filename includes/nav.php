@@ -1,22 +1,22 @@
-<?php
-//include 'includes/connect.php';
-if(isset($_COOKIE['id'])){
-    $id = $_COOKIE['id'];
-}
-?>
-
-<div class="header-bg">
-        <?php if(isset($_COOKIE['id'])){
-            echo "<div class='header-button-right'><a class='header-button-right-logout' href='/SA204/login/logout.php'>Deconnexion</a></div>";
-            echo "<div class='header-button-left'><a class='header-button-right-logout' href='/SA204/members/'>Members</a></div>";
-            echo "<div class='header-overlay-left'></div>";
-            echo "<div class='header-overlay-right'><a class='home-link' href='/SA204'>Home</a></div>";
-            
-            }else{
-                echo "<div class='header-button-right'><a class='header-button-right-login' href='/SA204/login/'>Login</a></div>";
-                echo "<div class='header-button-left'><a class='header-button-left-register' href='/SA204/register/'>Register</a></div>";
-                echo "<div class='header-overlay-left'></div>";
-                echo "<div class='header-overlay-right'>  <a class='home-link' href='/SA204'>Home</a></div>";
-            }?>
+<div class="header">
+    <div class="header-bg">
+        <div class="logo">
+            <a href="/SA204"><img src="../images/house-solid.svg" alt="Logo"></a>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/SA204">Accueil</a></li>
+                <li><a href="/SA204/products">Produits</a></li>
+            </ul>
+        </div>
+        <div class="auth-buttons">
+            <?php if(isset($_COOKIE['id'])): ?>
+                <a class="logout" href="/SA204/login/logout.php">Déconnexion</a>
+                <a class="members" href="/SA204/members/">Espace Membres</a>
+            <?php else: ?>
+                <a class="login" href="/SA204/login/">Connexion</a>
+                <a class="register" href="/SA204/login/">Inscription</a>
+            <?php endif; ?>
+        </div>
+    </div>
 </div>
-
