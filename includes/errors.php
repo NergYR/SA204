@@ -95,7 +95,10 @@ function getErrorMessage($errorCode) {
         16 => "Error Not Admin",
         17 => "Error Not User",
         18 => "Error Connection DB Failed",
-        19 => "Error SQL Querry Failed"
+        19 => "Error SQL Querry Failed",
+        20 => "Stock Added",
+        21 => "Error Adding Stock",
+        22 => "Error Negative Stock",
     ];
 
     return isset($errorMessages[$errorCode]) ? $errorMessages[$errorCode] : "Unknown error code";

@@ -21,26 +21,23 @@ if($row){
 }
 
 
-$sql="SELECT * FROM Produits";
+$sql="SELECT * FROM Utilisateurs";
 $result = mysqli_query($con, $sql);
 echo "<table border='1' style='width:100%; border-collapse:collapse;'>";
-echo "<tr><th>PID</th><th>Nom du Produit</th><th>Prix</th><th>Stock</th></tr>";
-while($row = mysqli_fetch_assoc($result)) {
-    // Déterminer la couleur de fond pour le stock
-    $stockClass = '';
-    if ($row['stock'] < 5) {
-        $stockClass = 'class="stock-low"';
-    } elseif ($row['stock'] < 10) {
-        $stockClass = 'class="stock-medium"';
-    }
+echo "<tr><th>UID</th><th>Nom</th><th>Prenom</th><th>Role</th></tr>";
 
+while($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td>" . htmlspecialchars($row['PID']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['Pnom']) . "</td>";
-    echo "<td>" . htmlspecialchars($row['prix']) . "</td>";
-    echo "<td $stockClass>" . htmlspecialchars($row['stock']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['UID']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['nom']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['prenom']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['role']) . "</td>";
     echo "</tr>";
 }
 echo "</table>";
+
+
+
+
 
 ?>
