@@ -15,11 +15,36 @@
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     if($row){
-        echo "Welcome admin";
+        echo "";
     }else{
         header('Location: /SA204/');
         setcookie('error', 16, time() + 1, '/SA204/');
     }
 
-
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <script src="../js/main.js"></script>
+</head>
+<body onload="checkCookie()">
+    <div>
+        <header class="header">
+            <?php include '../includes/nav.php'; ?>
+        </header>
+        <div>
+            <?php  include '../includes/stock.php'; ?>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

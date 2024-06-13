@@ -8,6 +8,14 @@
         header('Location: /SA204/');
         setcookie('error', 15, time() + 1, '/SA204/');
     }
+    include '../includes/connect.php';
+
+    $sql="SELECT * FROM utilisateurs WHERE UID='$id' AND role='admin'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if($row){
+        header('Location: /SA204/members/admin.php');
+    }
 
 ?>
 
