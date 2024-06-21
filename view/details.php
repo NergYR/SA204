@@ -75,6 +75,13 @@
             // }
             ?>
         </div>
+        <div class="shop">
+            <form action="../includes/add-to-cart.php" method="post">
+                <input type="hidden" name="PID" value="<?php echo $product['PID']; ?>">
+                <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['stock']; ?>">
+                <button type="submit">Ajouter au panier</button>
+            </form>
+        </div>
     </div>
 </main>
 </body>
