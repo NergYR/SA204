@@ -17,7 +17,7 @@
   $numbers2 = [];
   
   while (count($numbers2) < 3) {
-      $randNum = rand(10, 17);
+      $randNum = rand(18, 52);
       if (!in_array($randNum, $numbers2)) {
           $numbers2[] = $randNum;
       }
@@ -65,6 +65,9 @@
   $bestsell3 = $row5['image'];
 
 
+  mysqli_close($con);
+
+
 
 
 ?>
@@ -76,7 +79,7 @@
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
   <link href="./css/main.css" rel="stylesheet">
   <title>Accueil</title>
-  <script src="js/main.js"></script>
+  <script src="/SA204/js/main.js"></script>
 </head>
 <body onload="checkCookie()">
 <header class="header">
@@ -86,8 +89,12 @@
 
     <section class="promo-section">
       <div class="promo-bg"></div>
-      <div class="promo-circle promo-circle-top"></div>
-      <div class="promo-circle promo-circle-bottom"></div>
+      <div class="promo-circle promo-circle-top">
+        <img class="promo-circle" src="<?php echo $promo1_img; ?>" alt="promo1">
+      </div>
+      <div class="promo-circle promo-circle-bottom">
+        <img class="promo-circle" src="<?php echo $promo2_img; ?>" alt="promo2">
+      </div>
       <div class="promo-item promo-item-left">
         <div class="promo-item-bg"><?php echo "Nom : " . $promo1_name;
                                          echo "<br>";

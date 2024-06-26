@@ -13,14 +13,21 @@ function getCookie(cname) {
     return "";
 }
 
+function deleteCookie(cname) {
+    document.cookie = cname + '=; Max-Age=0; path=/;';
+}
+
 function checkCookie() {
     let error_n = getCookie("error");
     if (error_n != "") {
-        fetch('../includes/errors.php?error=' + error_n)
+        fetch('/SA204/includes/errors.php?error=' + error_n)
             .then(response => response.text())
             .then(data => {
                 alert("Error " + error_n + ": " + data);
+                deleteCookie("error");
             })
             .catch(error => console.error('Error:', error));
     }
+    // Delete cookie 
+    
 }

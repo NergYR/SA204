@@ -16,7 +16,7 @@
   <link href="../css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="css.css">
   <title>Liste des produits</title>
-  <script src="js/main.js"></script>
+  <script src="/SA204/js/main.js"></script>
 </head>
 <body onload="checkCookie()">
 <header class="header">
@@ -30,14 +30,18 @@
         if ($result10->num_rows > 0) {
             while($row = $result10->fetch_assoc()) {
                 echo "<div class='product'>";
+                echo "<img src='" . htmlspecialchars($row["image"]) . "' alt='" . htmlspecialchars($row["Pnom"]) . "' class='product-image'>";
+                echo "<div class='product-info'>";
                 echo "<h2><a href='details.php?PID=" . htmlspecialchars($row["PID"]) . "'>" . htmlspecialchars($row["Pnom"]) . "</a></h2>";
                 echo "<p>" . htmlspecialchars($row["marque"]) . "</p>";
                 echo "<p>Prix: " . htmlspecialchars($row["prix"]) . "€</p>";
+                echo "</div>";
                 echo "</div>";
             }
         } else {
             echo "0 résultats";
         }
+
         ?>
     </div>
 </body>
